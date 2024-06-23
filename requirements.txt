@@ -1,5 +1,5 @@
-Flask==2.0.3
-werkzeug==2.0.3
-pymongo==4.1.1
-pandas==1.4.2
-apscheduler==3.8.1
+Flask==3.0.3
+werkzeug==3.0.3
+pymongo==4.7.2
+pandas==2.2.2
+apscheduler==3.10.4
