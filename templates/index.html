@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Росотчет</title>
+    <link rel="stylesheet" href="../static/stty.css">
+</head>
+<body>
+    <header>
+        <div class="logo">РОСОТЧЕТ</div>
+        <nav>
+            <ul>
+                <li><a href="/statistics">Статистика</a></li>
+                <li><a href="/logout">Выйти</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    <main>
+        <h1>Формирование отчета</h1>
+        <form action="/generate_report" method="post">
+            <label for="LEP">Включать ЛЭП</label>
+            <select required id="LEP" name="LEP">
+                <option value="yes">Да</option>
+                <option value="no">Нет</option>
+            </select>
+
+            <label for="PS">Включать Подстанцию</label>
+            <select id="PS" name="PS">
+                <option value="yes">Да</option>
+                <option value="no">Нет</option>
+            </select>
+
+            <label for="RU">Включать РУ</label>
+            <select id="VL" name="VL">
+                <option value="yes">Да</option>
+                <option value="no">Нет</option>
+            </select>
+
+            <label for="StartDate">Начальная дата</label>
+            <input type="date" id="start_date" name="StartDate">
+
+            <label for="EndDate">Конечная дата</label>
+            <input type="date" id="end_date" name="EndDate">
+
+            <label for="FileFormat">Формат файла</label>
+            <select id="format" name="FileFormat">
+                <option value="xlsx">Xlsx</option>
+                <option value="csv">Csv</option>
+            </select>
+
+            <button id="report" type="submit">Сформировать отчет</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="logo">РОСОТЧЕТ</div>
+    </footer>
+</body>
+</html>

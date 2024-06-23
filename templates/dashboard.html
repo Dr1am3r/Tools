@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Росотчет - Панель управления</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<script>
+    // Функция для перенаправления на index.html через 1 секунду
+    function redirect() {
+        setTimeout(function() {
+            window.location.href = "/index";
+        }, 3000); // 1000 миллисекунд = 1 секунда
+    }
+</script>
+<body onload="redirect()">
+    
+    <header>
+        <div class="logo">РОСОТЧЕТ</div>
+        <nav>
+            <ul>
+                <li><a href="/logout">Выйти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Панель управления</h1>
+        <p>Добро пожаловать!</p>
+    </main>
+
+    <footer>
+        <div class="logo">РОСОТЧЕТ</div>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../static/statistic.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Формирование отчета</a></li>
+                <li><a href="{{ url_for('logout') }}">Выход</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Статистика</h1>
+        <table id="data-table" class="display">
+            <thead>
+                <tr>
+                    <th>Дата Формирования Сообщения</th>
+                    <th>Ид Сообщения</th>
+                    <th>Код События</th>
+                    <th>Код Технического Объекта</th>
+                    <th>Наименование Техн Объекта</th>
+                    <th>РЭС</th>
+                    <th>Система Источник</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for document in documents %}
+                <tr>
+                    <td>{{ document.ДатаФормированияСообщения }}</td>
+                    <td>{{ document.ИдСообщения }}</td>
+                    <td>{{ document.КодСобытия }}</td>
+                    <td>{{ document.КодТехническогоОбъекта }}</td>
+                    <td>{{ document.НаименованиеТехнОбъекта }}</td>
+                    <td>{{ document.РЭС }}</td>
+                    <td>{{ document.СистемаИсточник }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <script>
+        $(document).ready(function() {
+            $('#data-table').DataTable({
+                language: {
+        info: 'Страница _PAGE_ из _PAGES_',
+        infoEmpty: 'Ничего не найдено',
+        infoFiltered: '(Отфильтровано из _MAX_ записей)',
+        lengthMenu: 'Отображать _MENU_ записей',
+        zeroRecords: 'Ничего не найдено',
+        paginate: {
+        "next":       "Следующая",
+        "previous":   "Предыдущая"
+    },
+    search:         "Поиск:",
+    }
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Росотчет - Вход</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">РОСОТЧЕТ</div>
+        <nav>
+            <ul>
+                <li><a href="#">Статистика</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Вход</h1>
+        <form action="/login" method="post">
+            <label for="username">Имя пользователя</label>
+            <input type="text" id="username" name="username" placeholder="Введите имя пользователя" required>
+
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+
+            <button type="submit">Войти</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="logo">РОСОТЧЕТ</div>
+    </footer>
+</body>
+</html>
+
