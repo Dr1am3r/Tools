@@ -14,7 +14,7 @@ scheduler = BackgroundScheduler()
 scheduler.add_job(week_report.scheduled_weekly_job, 'cron', day_of_week='mon', hour=8, minute=5)
 scheduler.start()
 
-client = MongoClient('mongodb://localhost:27017')
+client = MongoClient('mongodb://mongo:lPjFpQVhrnCZlsErYLBeyxpgRltDXnzT@roundhouse.proxy.rlwy.net:47521')
 db = client['Users']
 users_collection = db['Users']
 data_db = client['Data_Incoming']
@@ -78,7 +78,7 @@ def statistics():
 @app.route('/generate_report', methods=['POST'])
 @login_required
 def generate_report():
-    client = MongoClient('mongodb://localhost:27017')
+    client = MongoClient('mongodb://mongo:lPjFpQVhrnCZlsErYLBeyxpgRltDXnzT@roundhouse.proxy.rlwy.net:47521')
     db = client['Data_Incoming']
     collection = db['Data_Incoming']
 

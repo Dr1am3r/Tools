@@ -3,14 +3,14 @@ from werkzeug.security import generate_password_hash
 
 # Подключение к MongoDB
 try:
-    client = MongoClient('mongodb://localhost:27017')
+    client = MongoClient('mongodb://mongo:lPjFpQVhrnCZlsErYLBeyxpgRltDXnzT@roundhouse.proxy.rlwy.net:47521')
     db = client['Users']
     users_collection = db['Users']
 
     # Добавление тестового пользователя
     user = {
-        "username": "l.busov",
-        "password": generate_password_hash("l-busov")
+        "username": "admin",
+        "password": generate_password_hash("admin")
     }
 
     result = users_collection.insert_one(user)
