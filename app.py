@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(week_report.scheduled_weekly_job, 'cron', day_of_week='mon', hour=8, minute=5)
+scheduler.add_job(week_report.scheduled_weekly_job, 'cron', day_of_week='mon', hour=9, minute=5)
 scheduler.start()
 
 client = MongoClient('mongodb://mongo:lPjFpQVhrnCZlsErYLBeyxpgRltDXnzT@roundhouse.proxy.rlwy.net:47521')
@@ -84,6 +84,10 @@ def generate_report():
 
     start_date = request.form['StartDate']
     end_date = request.form['EndDate']
+    if not any(char.isdigit() for char in end_date):
+        return "Ошибка: заполните даты"
+    if not any(char.isdigit() for char in start_date ):
+         return "Ошибка: заполните даты"
     if start_date > end_date:
         return "Некорректные даты"
     file_format = request.form['FileFormat']
